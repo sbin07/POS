@@ -30,8 +30,8 @@ import javax.servlet.http.HttpServletResponse;
                 rolesAllowed={"AdminRole"}
         )
 )
-@WebServlet(name = "Cars", urlPatterns = {"/Cars"})
-public class Cars extends HttpServlet {
+@WebServlet(name = "Return", urlPatterns = {"/Return"})
+public class Return extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -53,7 +53,7 @@ public class Cars extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Cars</title>");
+            out.println("<title>Servlet Return</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Cars at " + request.getContextPath() + "</h1>");
@@ -65,13 +65,13 @@ public class Cars extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request,response);
-        request.setAttribute("activePage", "Cars");
-        request.setAttribute("numberOfFreeParkingSpots", 10);
+//        request.setAttribute("activePage", "Cars");
+//        request.setAttribute("numberOfFreeParkingSpots", 10);
 
-        List<CarDetails> cars = carBean.getAllCars();
-        request.setAttribute("cars", cars);
+//        List<CarDetails> cars = carBean.getAllCars();
+//        request.setAttribute("cars", cars);
 
-        request.getRequestDispatcher("/WEB-INF/pages/cars.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/return.jsp").forward(request, response);
     }
 
     @Override

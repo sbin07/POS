@@ -1,9 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<t:pageTemplate pageTitle="Cars">    
-    <h1>Cars</h1>
-    <form method="POST" action="${pageContext.request.contextPath}/Cars">
+<t:pageTemplate pageTitle="Return">    
+    <h1>Return</h1>
+   <form method="POST" action="${pageContext.request.contextPath}/Return">
         <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/AddCar" role="button">Add Car</a>
         <button class="btn btn-danger" type="submit">Delete Cars</button>
         <c:forEach var="car" items="${cars}" varStatus="status">
