@@ -4,11 +4,8 @@
  */
 package com.park.parkinglot.ejb;
 
-import com.park.parkinglot.common.CarDetails;
 import com.park.parkinglot.common.ProdusDetails;
-import com.park.parkinglot.entity.Car;
 import com.park.parkinglot.entity.Produs;
-import com.park.parkinglot.entity.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,6 +13,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -31,7 +29,25 @@ public class ProdusBean {
     @PersistenceContext
     private EntityManager em;
 
+    public ArrayList<Produs> findByIds(Collection<String> produsCod) {
+
+        Query query = em.createQuery("SELECT p FROM Produs p");
+        List<Produs> produse = (List<Produs>) query.getResultList();
+        ArrayList<Produs> rez = new ArrayList<>();
+
+        for (Produs p : produse) {
+            for (String s : produsCod) {
+                if (p.getCodBare().equals(s)) {
+                    rez.add(p);
+                }
+            }
+        }
+
+        return rez;
+    }
+
     public ProdusDetails findById(String produsCod) {
+
         Produs prod = em.find(Produs.class, produsCod);
         return new ProdusDetails(prod.getCodBare(), prod.getDenumire(), prod.getPret());
     }
@@ -74,7 +90,6 @@ public class ProdusBean {
 //
 //        //em.persist(car);
 //    }
-
 //    public void deleteCarsByIds(Collection<Integer> ids) {
 //        LOG.info("deleteCarsByIds");
 //        for (Integer id : ids) {
@@ -82,5 +97,4 @@ public class ProdusBean {
 //            em.remove(car);
 //        }
 //    }
-
 }

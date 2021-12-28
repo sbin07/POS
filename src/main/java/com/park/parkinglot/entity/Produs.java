@@ -7,10 +7,9 @@ package com.park.parkinglot.entity;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 /**
@@ -24,22 +23,18 @@ public class Produs implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    private String codBare;
+    private String cod_bare;
 
     private String denumire;
 
     private double pret;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "BON_KEY")
-    private Bon bon;
-
     public String getCodBare() {
-        return codBare;
+        return cod_bare;
     }
 
     public void setCodBare(String codBare) {
-        this.codBare = codBare;
+        this.cod_bare = codBare;
     }
 
     public String getDenumire() {
@@ -56,14 +51,6 @@ public class Produs implements Serializable {
 
     public void setPret(double pret) {
         this.pret = pret;
-    }
-
-    public Bon getBon() {
-        return bon;
-    }
-
-    public void setBon(Bon bon) {
-        this.bon = bon;
     }
 
     @Override
@@ -84,7 +71,7 @@ public class Produs implements Serializable {
             return false;
         }
         final Produs other = (Produs) obj;
-        if (!Objects.equals(this.codBare, other.codBare)) {
+        if (!Objects.equals(this.cod_bare, other.cod_bare)) {
             return false;
         }
         return true;
@@ -92,7 +79,7 @@ public class Produs implements Serializable {
 
     @Override
     public String toString() {
-        return "com.park.parkinglot.entity.Produs[ codBare=" + codBare + " ]";
+        return "com.park.parkinglot.entity.Produs[ codBare=" + cod_bare + " ]";
     }
 
 }

@@ -31,7 +31,6 @@ public class User implements Serializable {
     private String password;
     private String position;
     @OneToMany(mappedBy="user")
-    private Collection<Car> cars;
     
     
     public Integer getId() {
@@ -73,15 +72,7 @@ public class User implements Serializable {
     public void setPosition(String position) {
         this.position = position;
     }
-    
-    public Collection<Car> getCars() {
-        return cars;
-    }
-
-    public void setCars(Collection<Car> cars) {
-        this.cars = cars;
-    }
-
+   
     
     @Override
     public int hashCode() {

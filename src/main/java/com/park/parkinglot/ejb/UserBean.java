@@ -21,13 +21,11 @@ import javax.persistence.Query;
  * @author mihal
  */
 public class UserBean {
-    private static final Logger LOG = Logger.getLogger(CarBean.class.getName());
 
     @PersistenceContext
     private EntityManager em;
 
     public List<UserDetails> getAllUsers() {
-        LOG.info("getAllUsers");
         try {
             Query query = em.createQuery("SELECT u FROM User u");
             List<User> users = (List<User>) query.getResultList();

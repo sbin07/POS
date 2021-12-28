@@ -5,7 +5,6 @@
 package com.park.parkinglot.servlet;
 
 
-import com.park.parkinglot.common.CarDetails;
 import com.park.parkinglot.common.UserDetails;
 import com.park.parkinglot.ejb.UserBean;
 import java.io.IOException;

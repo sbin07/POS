@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,10 +23,7 @@ public class Bon implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String codBare;
-
-    @OneToMany(mappedBy = "bon")
-    private Collection<Produs> produse;
+    private Collection<String> cod_bare;
 
     public Integer getId() {
         return id;
@@ -37,21 +33,17 @@ public class Bon implements Serializable {
         this.id = id;
     }
 
-    public String getCodBare() {
-        return codBare;
+    public Collection<String> getProdusCod() {
+        return cod_bare;
     }
 
-    public void setCodBare(String codBare) {
-        this.codBare = codBare;
+    public void setProdusCod(Collection<String> produsCod) {
+        this.cod_bare = produsCod;
     }
 
-    public Collection<Produs> getProduse() {
-        return produse;
-    }
+    
 
-    public void setProduse(Collection<Produs> produse) {
-        this.produse = produse;
-    }
+   
 
     @Override
     public int hashCode() {
