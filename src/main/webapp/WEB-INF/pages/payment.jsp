@@ -51,13 +51,26 @@
         <div class="mx-auto text-center" style="width: 500px;">
             <label for="metoda_plata">Alege metoda de plata :</label>
             <a name="card" class="btn btn-secondary btn-sm" type="submit" href="${pageContext.request.contextPath}/Card">Card</a>
-            <button name="cash" class="btn btn-secondary btn-sm" type="submit">Cash</button>
-            <button name="pay" class="btn btn-secondary btn-sm" type="submit">Plateste</button>
+            <a name="cash" class="btn btn-secondary btn-sm" type="submit" href="${pageContext.request.contextPath}/Cash">Cash</a>
         </div>
 
     </form>
-<!--    <script>
-        var Table = document.getElementById("cos");
-        Table.innerHTML = "";
-    </script>-->
+    <script>// Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+        })()
+    </script>
 </t:pageTemplate>

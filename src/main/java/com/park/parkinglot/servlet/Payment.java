@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.ValidationException;
 
 /**
  *
@@ -49,6 +50,9 @@ public class Payment extends HttpServlet {
         String produsCod = request.getParameter("cod_produs");
         Card.produse.add(produsCod);
         ProdusDetails produs = produsBean.findById(produsCod);
+        if(produs == null){
+            throw new ValidationException("Cod de bare invalid");
+        }
 
         productDetails.add(produs);
         request.setAttribute("items", productDetails);

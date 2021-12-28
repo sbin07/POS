@@ -14,6 +14,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.validation.ValidationException;
 
 /**
  *
@@ -47,8 +48,11 @@ public class ProdusBean {
     }
 
     public ProdusDetails findById(String produsCod) {
-
+        
         Produs prod = em.find(Produs.class, produsCod);
+        if(prod == null){
+          return null;
+        }
         return new ProdusDetails(prod.getCodBare(), prod.getDenumire(), prod.getPret());
     }
 

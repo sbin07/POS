@@ -29,6 +29,12 @@
                     <th scope="col">Ati platit :</th>
                     <th scope="col">${valoare} RON</th>
                 </tr>
+                 <tr >
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">Rest :</th>
+                    <th scope="col">${rest} RON</th>
+                </tr>
 
             </table>
 
